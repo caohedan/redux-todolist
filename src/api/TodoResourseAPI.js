@@ -16,12 +16,14 @@ const todosAPI = {
     if (todo !== undefined) {
       todo.toggleActive();
     }
+    return todo;
   },
   updateItemContent(viewId, content) {
     let todo = this.todos.find(item => item.viewId === viewId);
     if (todo !== undefined) {
       todo.content = content;
     }
+    return todo;
   }
 };
 export default todosAPI;
