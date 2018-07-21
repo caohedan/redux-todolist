@@ -4,10 +4,6 @@ import AddItemContainer from './container/AddItemContainer';
 import TodoListContainer from './container/TodoListContainer';
 import FilterContainer from './container/FilterContainer';
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="container">

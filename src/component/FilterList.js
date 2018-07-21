@@ -2,9 +2,6 @@ import Todo from '../model/Todo';
 import classNames from 'classnames';
 import React, { Component } from 'react';
 export default class FilterList extends Component {
-  constructor(props) {
-    super(props);
-  }
   showFilterList(event) {
     const statusOfList = event.target.attributes.getNamedItem('data-filter')
       .value;

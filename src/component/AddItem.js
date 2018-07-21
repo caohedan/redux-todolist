@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import Todo from '../model/Todo';
-import todosAPI from '../api/TodoResourseAPI';
 export default class AddItem extends Component {
   constructor(props) {
     super(props);
     this.newItem = React.createRef();
-    this.todosAPI = todosAPI;
   }
 
-  add = event => {
+  add = () => {
     const todo = new Todo(this.refs.newItem.value);
     this.props.onAddItem(todo);
     this.refs.newItem.value = '';

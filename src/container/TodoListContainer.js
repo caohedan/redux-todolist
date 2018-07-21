@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import TodoList from '../component/TodoList';
-import { toggleTodo, updateTodo } from '../action';
+import { filterTodos, toggleTodo, updateTodo } from '../action';
 import todosAPI from '../api/TodoResourseAPI';
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -10,9 +10,11 @@ const mapStateToProps = (state, ownProps) => {
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onToggleTodo: viewId => {
+    onToggleTodo: (viewId, statusOfList) => {
       const todo = todosAPI.toggleActive(viewId);
+      const todos = todosAPI.filerByStatus(statusOfList);
       dispatch(toggleTodo(todo));
+      dispatch(filterTodos(todos, statusOfList));
     },
     onUpdateTodo: (viewId, content) => {
       const todo = todosAPI.updateItemContent(viewId, content);

@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import TodoItem from './TodoItem';
 class TodoList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div>
@@ -14,7 +10,9 @@ class TodoList extends Component {
               <TodoItem
                 item={item}
                 key={item.viewId}
-                toggleActiveHandler={viewId => this.props.onToggleTodo(viewId)}
+                toggleActiveHandler={viewId =>
+                  this.props.onToggleTodo(viewId, this.props.statusOfList)
+                }
                 updateItemContent={(viewId, content) =>
                   this.props.onUpdateTodo(viewId, content)
                 }
